@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Results</title>
+</head>
+<body>
+    <h1>Diagnosis Results</h1>
+    <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 300px;">
+    <h2>Prediction: {{ prediction }}</h2>
+    <p><strong>Explanation:</strong> {{ explanation }}</p>
+    <h3>Probabilities:</h3>
+    <ul>
+        {% for label, prob in probabilities.items() %}
+            <li>{{ label }}: {{ prob }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('main.index') }}">Go Back</a>
+</body>
+</html>
